@@ -13,11 +13,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       $categories=Category::all();
-       return response()->json([
-        'staus'=>true,
-        'data'=>$categories
-       ],200);
+        $categories = Category::all();
+        return response()->json(
+            [
+                'staus' => true,
+                'data' => $categories,
+            ],
+            200,
+        );
     }
 
     /**
@@ -25,7 +28,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create($request->all());
+        return response()->json(
+            [
+                'status' => true,
+                'data' => $category,
+            ],
+            200,
+        );
     }
 
     /**
